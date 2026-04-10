@@ -3,7 +3,7 @@ const { publier, getArticle, getOneArticle, deleteArticle, updateArticle } = req
 const router = express.Router();
 const auth = require('../middlewares/auth');
 
-router.post('/',  publier);
+router.post('/',auth.authAdmin, publier);
 router.get('/', getArticle);
 router.get('/:id', getOneArticle);
 router.delete('/:id', auth.authAdmin, deleteArticle);
